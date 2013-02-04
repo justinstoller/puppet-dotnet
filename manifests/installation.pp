@@ -1,4 +1,4 @@
-define dotNet::installation(
+define dotnet::installation(
   $version = $title,
   $source  = undef
 ) {
@@ -11,8 +11,17 @@ define dotNet::installation(
     $location = "puppet:///modules/${module_name}/${exe_name}"
   }
 
-  package { "dotNet-${version}":
-    ensure => installed,
+  $on_disk = 'C:\\dotnetfx.exe'
+
+  file { $on_disk:
+    ensure => file,
     source => $location,
+    mode   => '750',
+  }
+
+  package { 'Microsoft .NET Framework 4.5':
+    ensure => present,
+    source => $on_disk,
+    install_options => [ '/q', '/norestart' ],
   }
 }

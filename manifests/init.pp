@@ -1,4 +1,4 @@
-# == Class: dotNet
+# == Class: dotnet
 #
 # Full description of class dotNet here.
 #
@@ -35,7 +35,7 @@
 #
 # Copyright 2013 Your name here, unless otherwise noted.
 #
-class dotNet(
+class dotnet(
   $version = undef
 ) {
 
@@ -43,7 +43,7 @@ class dotNet(
 
   if $version {
     $ver = $version
-  } elsif $title {
+  } elsif $title != 'dotnet' {
     $ver = $title
   } elsif $is_old {
     $ver = '40'
@@ -57,8 +57,10 @@ class dotNet(
     fail()
   }
 
-  if $is_old { require dotNet::wic }
+  if $is_old {
+    require dotNet::wic
+  }
 
-  dotNet::installation { $ver: }
+  dotnet::installation { $ver: }
 
 }
