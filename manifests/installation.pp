@@ -1,7 +1,7 @@
 define dotnet::installation(
   $version     = $title,
   $source      = undef,
-  $destination = 'C:\\packages'
+  $destination = 'C:\packages'
 ) {
 
   if $source {
