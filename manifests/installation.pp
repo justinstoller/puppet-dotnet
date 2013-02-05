@@ -1,6 +1,7 @@
 define dotnet::installation(
-  $version = $title,
-  $source  = undef
+  $version     = $title,
+  $source      = undef,
+  $destination = 'C:\\packages'
 ) {
 
   if $source {
@@ -11,7 +12,7 @@ define dotnet::installation(
     $location = "puppet:///modules/${module_name}/${exe_name}"
   }
 
-  $on_disk = 'C:\\dotnetfx.exe'
+  $on_disk = "${destination}\\dotnetfx.exe"
 
   file { $on_disk:
     ensure => file,

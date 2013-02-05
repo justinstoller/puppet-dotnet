@@ -36,7 +36,9 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class dotnet(
-  $version = undef
+  $version     = undef,
+  $source      = undef,
+  $destination = 'C:\\packages'
 ) {
 
   $is_old = $::kernelmajversion =~ /^5\./
@@ -61,6 +63,9 @@ class dotnet(
     require dotNet::wic
   }
 
-  dotnet::installation { $ver: }
+  dotnet::installation { $ver:
+    source      => $source,
+    destination => $destination,
+  }
 
 }
