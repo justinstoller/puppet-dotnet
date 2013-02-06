@@ -20,7 +20,13 @@ define dotnet::installation(
     mode   => '750',
   }
 
-  package { 'Microsoft .NET Framework 4.5':
+  if $version == '45' {
+    $prettier_ver = '4.5'
+  } else {
+    $prettier_ver = '4.0'
+  }
+
+  package { "Microsoft .NET Framework ${prettier_ver}":
     ensure => present,
     source => $on_disk,
     install_options => [ '/q', '/norestart' ],

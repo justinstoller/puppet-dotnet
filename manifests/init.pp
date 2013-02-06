@@ -60,7 +60,7 @@ class dotnet(
   }
 
   if $is_old {
-    require dotNet::wic
+    require dotnet::wic
   }
 
   dotnet::installation { $ver:
