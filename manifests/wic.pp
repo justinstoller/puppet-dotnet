@@ -1,4 +1,4 @@
-define dotnet::wic(
+class dotnet::wic(
   $version = $title,
   $source  = undef
 ) {
