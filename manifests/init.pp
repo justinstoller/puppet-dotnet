@@ -1,6 +1,6 @@
 # == Class: dotnet
 #
-# Full description of class dotNet here.
+# Full description of class dotnet here.
 #
 # === Parameters
 #
@@ -23,7 +23,7 @@
 #
 # === Examples
 #
-#  class { dotNet:
+#  class { dotnet:
 #    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ]
 #  }
 #
